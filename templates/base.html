@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{% block title %}{% endblock %}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block styles %}{% endblock %}
+    <style>
+      #result {
+        border-bottom-style: inset;
+      }
+    
+      #autocomplete {
+        position: absolute;
+        z-index: 1;
+        background-color: white;
+        max-height: 200px;
+        overflow-y: scroll;
+        border: 1px solid gray;
+      }
+    
+      #autocomplete li {
+        list-style-type: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+    
+      #autocomplete li:hover {
+        background-color: #f1f1f1;
+      }
+    
+    
+      #container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+    
+      #search-form {
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+      }
+    
+      #query {
+        height: 44px;
+        border: 2px solid grey;
+        box-shadow: 0 1px 3px rgba(23, 23, 23, 0.24);
+        border-radius: 24px;
+        margin: 0 auto;
+        width: 690px;
+      }
+    
+      button[type="submit"] {
+        background-color: transparent;
+        border: none;
+        margin-left: 5px;
+      }
+    
+      #autocomplete {
+  z-index: 9999;
+  background-color: white;
+  max-height: 200px;
+  overflow-y: scroll;
+  border: 1px solid gray;
+  width: 690px;
+  position: absolute; /* add this line */
+  left: 50%; /* add this line */
+  transform: translateX(-53%); /* add this line */
+}
+    
+      #autocomplete li {
+        list-style-type: none;
+        padding: 5px;
+        cursor: pointer;
+      }
+    
+      #autocomplete li:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
+    <h1>Search </h1>
+  </head>
+  <body>
+    <nav>
+      <ul>
+      </ul>
+    </nav>
+      {% block content %}{% endblock %}
+    {% block scripts %}
+      <script src="{{ url_for('static', filename='autosuggest.js') }}"></script>
+    {% endblock %}
+  </body>
+</html>
+
