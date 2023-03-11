@@ -6,6 +6,28 @@
   display: flex;
   align-items: center;
 }
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* add this line */
+}
+button[type="submit"] {
+  width: auto;
+  height: auto;
+  margin-bottom: 5px;
+  margin-right: 17px;
+  height: 30px; /* adjust the height as needed */
+  vertical-align: middle; /* align the button with the text input */
+}
+
+body > p { /* styles for border insets per entry*/
+  border-bottom: inset;
+  height: 30px;
+}
+#container {
+  padding-bottom: 10px;
+  border-bottom: inset;
+}
   </style>
 {% endblock %}
 {% block content %}
